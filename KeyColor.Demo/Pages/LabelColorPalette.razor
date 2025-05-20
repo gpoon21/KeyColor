@@ -1,62 +1,68 @@
 ﻿@using System.Text
-<div style="display: flex; flex-direction: column;">
-    @foreach (string label in _labels) {
-        <div class="label-container" style="background-color: @_colorKey.GetUniqueColor(label).ToCssColor();">
-            <div>
-                <span class="label-text">@label</span>
+
+<div class="palette-container">
+    <div class="labels-grid">
+        @foreach (string label in _labels) {
+            <div class="label-container" style="background-color: @_colorKey.GetUniqueColor(label).ToCssColor();">
+                <div class="label-text">@label</div>
+                <div class="label-subtext">@label</div>
             </div>
-            <div>
-                <span class="label-subtext">@label</span>
+        }
+    </div>
+
+    <div class="controls-section">
+        <div class="button-container">
+            <button class="control-button" @onclick="NewLabels">Generate New Labels</button>
+            <button class="control-button" @onclick="Update">Update Colors</button>
+        </div>
+
+        <div class="parameters-grid">
+            <div class="numeric-field">
+                <label for="seed">Color Seed</label>
+                <input type="number" id="seed" @bind="_colorKey.Seed"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="saturation-max">Saturation Ceiling</label>
+                <input type="number" step="0.01" id="saturation-max" @bind="_colorKey.Saturation.Max"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="saturation-min">Saturation Floor</label>
+                <input type="number" step="0.01" id="saturation-min" @bind="_colorKey.Saturation.Min"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="lightness-max">Lightness Ceiling</label>
+                <input type="number" step="0.01" id="lightness-max" @bind="_colorKey.Lightness.Max"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="lightness-min">Lightness Floor</label>
+                <input type="number" step="0.01" id="lightness-min" @bind="_colorKey.Lightness.Min"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="brightness-max">Brightness Ceiling</label>
+                <input type="number" id="brightness-max" @bind="_colorKey.Brightness.Max"/>
+            </div>
+
+            <div class="numeric-field">
+                <label for="brightness-min">Brightness Floor</label>
+                <input type="number" id="brightness-min" @bind="_colorKey.Brightness.Min"/>
             </div>
         </div>
-    }
-    <div class="button-container">
-        <button @onclick="NewLabels" style="margin-right: 10px;">New Labels</button>
-        <button @onclick="Update">Update</button>
-    </div>
-    <div class="numeric-field">
-        <label for="seed">Seed:</label>
-        <input type="number" id="seed" bind="@_colorKey.Seed"/>
-    </div>
-    <div class="numeric-field">
-        <label for="saturation-max">Saturation Ceiling:</label>
-        <input type="number" step="0.01" id="saturation-max" bind="@_colorKey.Saturation.Max"/>
-    </div>
-    <div class="numeric-field">
-        <label for="saturation-min">Saturation Floor:</label>
-        <input type="number" step="0.01" id="saturation-min" bind="@_colorKey.Saturation.Min"/>
-    </div>
-    <div class="numeric-field">
-        <label for="lightness-max">Lightness Ceiling:</label>
-        <input type="number" step="0.01" id="lightness-max" bind="@_colorKey.Lightness.Max"/>
-    </div>
-    <div class="numeric-field">
-        <label for="lightness-min">Lightness Floor:</label>
-        <input type="number" step="0.01" id="lightness-min" bind="@_colorKey.Lightness.Min"/>
-    </div>
-    <div class="numeric-field">
-        <label for="brightness-max">Brightness Ceiling:</label>
-        <input type="number" id="brightness-max" bind="@_colorKey.Brightness.Max"/>
-    </div>
-    <div class="numeric-field">
-        <label for="brightness-min">Brightness Floor:</label>
-        <input type="number" id="brightness-min" bind="@_colorKey.Brightness.Min"/>
     </div>
 </div>
 
-
 @code {
-
-
     private readonly KeyColorGenerator _colorKey = new();
-
     private string[] _labels = Enumerable.Range(1, 10).Select(_ => GenerateRandomString(8)).ToArray();
 
     private void NewLabels() {
         _labels = Enumerable.Range(1, 10).Select(_ => GenerateRandomString(8)).ToArray();
         StateHasChanged();
     }
-
 
     public static string GenerateRandomString(int length) {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -72,9 +78,7 @@
         return stringBuilder.ToString();
     }
 
-
     private void Update() {
         StateHasChanged();
     }
-
 }
