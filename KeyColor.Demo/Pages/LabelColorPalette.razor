@@ -2,10 +2,17 @@
 
 <div class="palette-container">
     <div class="labels-grid">
-        @foreach (string label in _labels) {
-            <div class="label-container" style="background-color: @_colorKey.GetUniqueColor(label).ToCssColor();">
-                <div class="label-text">@label</div>
-                <div class="label-black">@label</div>
+        @for (int i = 0; i < _labels.Length; i++) {
+            var index = i; // Capture the index for the lambda
+            <div class="label-container"
+                 style="background-color: @_colorKey.GetUniqueColor(_labels[index]).ToCssColor();">
+                <input type="text"
+                       class="custom-label-input"
+                       value="@_labels[index]"
+                       @oninput="e => UpdateLabel(index, e.Value?.ToString() ?? string.Empty)"
+                       placeholder="Type here..."
+                       maxlength="20"/>
+                <div class="label-black">@_labels[index]</div>
             </div>
         }
     </div>
@@ -68,6 +75,11 @@
     private readonly KeyColorGenerator _colorKey = new();
     private string[] _labels = Enumerable.Range(0, 12).Select(_ => GenerateRandomString(8)).ToArray();
 
+    private void UpdateLabel(int index, string newValue) {
+        _labels[index] = newValue;
+        StateHasChanged();
+    }
+
     private void NewLabels() {
         _labels = Enumerable.Range(0, 12).Select(_ => GenerateRandomString(8)).ToArray();
         StateHasChanged();
@@ -90,4 +102,5 @@
     private void Update() {
         StateHasChanged();
     }
+
 }
