@@ -13,7 +13,7 @@ namespace KeyColor.Standard {
             get { return GetUniqueColor(label); }
         }
 
-        public GeneratedColor this[byte[] key] { // Changed from ReadOnlySpan<byte> to byte[]
+        public GeneratedColor this[byte[] key] { 
             get { return GetUniqueColor(key); }
         }
 
@@ -40,7 +40,7 @@ namespace KeyColor.Standard {
             return GenerateColor(label);
         }
 
-        public GeneratedColor GetUniqueColor(byte[] key) { // Changed from ReadOnlySpan<byte> to byte[]
+        public GeneratedColor GetUniqueColor(byte[] key) { 
             return GenerateColor(key);
         }
 
@@ -84,7 +84,7 @@ namespace KeyColor.Standard {
             return GenerateColor(Encoding.Unicode.GetBytes(label));
         }
 
-        private GeneratedColor GenerateColor(byte[] keySpan) { // Changed from ReadOnlySpan<byte> to byte[]
+        private GeneratedColor GenerateColor(byte[] keySpan) {
 
             // Compute SHA256 hash of the label
             byte[] hueHash;
