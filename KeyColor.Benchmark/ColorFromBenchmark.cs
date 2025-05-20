@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using System;
 
-#if NETSTANDARD2_0
+#if NETCOREAPP3_1
 using KeyColor.Standard;
 #endif
 
