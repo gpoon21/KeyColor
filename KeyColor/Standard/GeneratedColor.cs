@@ -1,6 +1,6 @@
 using System;
 
-#if NETSTANDARD2_0
+#if !NET8_0_OR_GREATER
 
 namespace KeyColor.Standard {
     public readonly struct GeneratedColor {
