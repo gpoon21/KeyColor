@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor", "KeyColor\KeyCol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor.UnitTest", "KeyColor.UnitTest\KeyColor.UnitTest.csproj", "{71660024-BEC9-4CD3-A4A5-D3C177F86513}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor.Demo", "KeyColor.Demo\KeyColor.Demo.csproj", "{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{71660024-BEC9-4CD3-A4A5-D3C177F86513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71660024-BEC9-4CD3-A4A5-D3C177F86513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71660024-BEC9-4CD3-A4A5-D3C177F86513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
