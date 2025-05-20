@@ -12,9 +12,9 @@ namespace KeyColor.Benchmark;
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
-[SimpleJob(RuntimeMoniker.Net90)]
-[SimpleJob(RuntimeMoniker.Net80)]
-[SimpleJob(RuntimeMoniker.NetCoreApp31)] // For .NET Standard 2.0 compatibility testing
+[ShortRunJob(RuntimeMoniker.Net90)]
+[ShortRunJob(RuntimeMoniker.Net80)]
+[ShortRunJob(RuntimeMoniker.NetCoreApp31)] // For .NET Standard 2.0 compatibility testing
 public class ColorFromBenchmark {
     private const string _stringKey = "TestKey";
     private readonly byte[] _byteArray = [1, 2, 3, 4, 5];
