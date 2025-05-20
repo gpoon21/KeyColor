@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if NET8_0_OR_GREATER
+
+using System;
 using System.Runtime.InteropServices;
 
 namespace KeyColor;
@@ -22,5 +24,5 @@ public static class ColorFrom {
     public static GeneratedColor Rng() {
         return _generator.GetUniqueColor(Random.Shared.Next());
     }
-
 }
+#endif

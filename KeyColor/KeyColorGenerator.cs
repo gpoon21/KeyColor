@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NET8_0_OR_GREATER
+using System;
 using System.Drawing;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -159,42 +160,25 @@ public class KeyColorGenerator {
     public class Range<T> where T : struct, INumber<T>, IMinMaxValue<T>, IConvertible {
         private readonly T _minMin;
         private readonly T _maxMax;
-#if !NET10_0_OR_GREATER
         private T _min;
         private T _max;
-#endif
+
         public T Min {
-#if NET10_0_OR_GREATER
-            get;
-#else
             get { return _min; }
-#endif
             set {
                 if (value < _minMin) return;
                 if (value > Max) return;
-#if NET10_0_OR_GREATER
-                field = value;
-#else
                 _min = value;
-#endif
 
             }
         }
 
         public T Max {
-#if NET10_0_OR_GREATER
-            get;
-#else
             get { return _max; }
-#endif
             set {
                 if (value > _maxMax) return;
                 if (value < Min) return;
-#if NET10_0_OR_GREATER
-                field = value;
-#else
                 _max = value;
-#endif
             }
         }
 
@@ -224,3 +208,5 @@ public class KeyColorGenerator {
 
     }
 }
+
+#endif
