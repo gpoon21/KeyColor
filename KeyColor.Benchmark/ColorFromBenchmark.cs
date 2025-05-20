@@ -2,21 +2,13 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using System;
-
-#if NET8_0_OR_GREATER
 using KeyColor;
-using ResultType = KeyColor.GeneratedColor;
-#else
-using KeyColor.Standard;
-using ResultType = KeyColor.Standard.GeneratedColor;
-#endif
 
 namespace KeyColor.Benchmark;
 
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
-[ShortRunJob(RuntimeMoniker.NetCoreApp31)] // For .NET Standard 2.0 compatibility testing
 [ShortRunJob(RuntimeMoniker.Net90)]
 [ShortRunJob(RuntimeMoniker.Net80)]
 public class ColorFromBenchmark {
@@ -25,30 +17,23 @@ public class ColorFromBenchmark {
     private readonly TestStruct _structData = new(42, 1.25);
 
     [Benchmark(Description = "ColorFrom.String")]
-    public ResultType BenchmarkString() {
+    public GeneratedColor BenchmarkString() {
         return ColorFrom.String(_stringKey);
     }
 
     [Benchmark(Description = "ColorFrom.Key<struct>")]
-    public ResultType BenchmarkStruct() {
+    public GeneratedColor BenchmarkStruct() {
         return ColorFrom.Key(_structData);
     }
 
-#if NET8_0_OR_GREATER
-    [Benchmark(Description = "ColorFrom.Span (NET8+)")]
-    public ResultType BenchmarkSpanNet8() {
+    [Benchmark(Description = "ColorFrom.Span")]
+    public GeneratedColor BenchmarkSpan() {
         ReadOnlySpan<byte> span = _byteArray.AsSpan();
         return ColorFrom.Span(span);
     }
-#else
-    [Benchmark(Description = "ColorFrom.Span (Standard)")]
-    public ResultType BenchmarkSpanStandard() {
-        return ColorFrom.ByteArray(_byteArray);
-    }
-#endif
 
     [Benchmark(Description = "ColorFrom.Rng")]
-    public ResultType BenchmarkRng() {
+    public GeneratedColor BenchmarkRng() {
         return ColorFrom.Rng();
     }
 
