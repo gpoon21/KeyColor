@@ -3,7 +3,7 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using System;
 
-#if NETCOREAPP3_1
+#if !NET8_0_OR_GREATER
 using KeyColor.Standard;
 #endif
 
@@ -12,9 +12,9 @@ namespace KeyColor.Benchmark;
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
+[ShortRunJob(RuntimeMoniker.NetCoreApp31)] // For .NET Standard 2.0 compatibility testing
 [ShortRunJob(RuntimeMoniker.Net90)]
 [ShortRunJob(RuntimeMoniker.Net80)]
-[ShortRunJob(RuntimeMoniker.NetCoreApp31)] // For .NET Standard 2.0 compatibility testing
 public class ColorFromBenchmark {
     private const string _stringKey = "TestKey";
     private readonly byte[] _byteArray = [1, 2, 3, 4, 5];
@@ -38,10 +38,10 @@ public class ColorFromBenchmark {
     }
 #endif
 
-#if NETSTANDARD2_0
+#if !NET8_0_OR_GREATER
     [Benchmark(Description = "ColorFrom.Span (Standard)")]
     public GeneratedColor BenchmarkSpanStandard() {
-        return ColorFrom.Span<byte>(_byteArray);
+        return ColorFrom.ByteArray(_byteArray);
     }
 #endif
 
