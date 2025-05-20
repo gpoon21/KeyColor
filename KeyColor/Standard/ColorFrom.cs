@@ -17,7 +17,7 @@ namespace KeyColor.Standard {
             return _generator.GetUniqueColor(key);
         }
 
-        public static GeneratedColor Span<T>(byte[] data) where T : struct {
+        public static GeneratedColor ByteArray(byte[] data) {
             return _generator.GetUniqueColor(data);
         }
 
