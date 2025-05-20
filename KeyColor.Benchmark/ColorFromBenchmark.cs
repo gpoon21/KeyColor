@@ -3,8 +3,12 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using System;
 
-#if !NET8_0_OR_GREATER
+#if NET8_0_OR_GREATER
+using KeyColor;
+using ResultType = KeyColor.GeneratedColor;
+#else
 using KeyColor.Standard;
+using ResultType = KeyColor.Standard.GeneratedColor;
 #endif
 
 namespace KeyColor.Benchmark;
@@ -21,32 +25,30 @@ public class ColorFromBenchmark {
     private readonly TestStruct _structData = new(42, 1.25);
 
     [Benchmark(Description = "ColorFrom.String")]
-    public GeneratedColor BenchmarkString() {
+    public ResultType BenchmarkString() {
         return ColorFrom.String(_stringKey);
     }
 
     [Benchmark(Description = "ColorFrom.Key<struct>")]
-    public GeneratedColor BenchmarkStruct() {
+    public ResultType BenchmarkStruct() {
         return ColorFrom.Key(_structData);
     }
 
 #if NET8_0_OR_GREATER
     [Benchmark(Description = "ColorFrom.Span (NET8+)")]
-    public GeneratedColor BenchmarkSpanNet8() {
+    public ResultType BenchmarkSpanNet8() {
         ReadOnlySpan<byte> span = _byteArray.AsSpan();
         return ColorFrom.Span(span);
     }
-#endif
-
-#if !NET8_0_OR_GREATER
+#else
     [Benchmark(Description = "ColorFrom.Span (Standard)")]
-    public GeneratedColor BenchmarkSpanStandard() {
+    public ResultType BenchmarkSpanStandard() {
         return ColorFrom.ByteArray(_byteArray);
     }
 #endif
 
     [Benchmark(Description = "ColorFrom.Rng")]
-    public GeneratedColor BenchmarkRng() {
+    public ResultType BenchmarkRng() {
         return ColorFrom.Rng();
     }
 
