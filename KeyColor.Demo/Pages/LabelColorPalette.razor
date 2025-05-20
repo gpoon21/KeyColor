@@ -3,7 +3,7 @@
 <div class="palette-container">
     <div class="labels-grid">
         @for (int i = 0; i < _labels.Length; i++) {
-            var index = i; // Capture the index for the lambda
+            int index = i; // Capture the index for the lambda
             <div class="label-container"
                  style="background-color: @_colorKey.GetUniqueColor(_labels[index]).ToCssColor();">
                 <input type="text"
