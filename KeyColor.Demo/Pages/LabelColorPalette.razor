@@ -66,10 +66,10 @@
 
 @code {
     private readonly KeyColorGenerator _colorKey = new();
-    private string[] _labels = Enumerable.Range(1, 10).Select(_ => GenerateRandomString(8)).ToArray();
+    private string[] _labels = Enumerable.Range(0, 12).Select(_ => GenerateRandomString(8)).ToArray();
 
     private void NewLabels() {
-        _labels = Enumerable.Range(1, 10).Select(_ => GenerateRandomString(8)).ToArray();
+        _labels = Enumerable.Range(0, 12).Select(_ => GenerateRandomString(8)).ToArray();
         StateHasChanged();
     }
 
