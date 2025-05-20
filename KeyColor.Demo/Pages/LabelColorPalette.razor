@@ -5,6 +5,7 @@
         @foreach (string label in _labels) {
             <div class="label-container" style="background-color: @_colorKey.GetUniqueColor(label).ToCssColor();">
                 <div class="label-text">@label</div>
+                <div class="label-black">@label</div>
                 <div class="label-subtext">@label</div>
             </div>
         }
@@ -17,39 +18,48 @@
         </div>
 
         <div class="parameters-grid">
-            <div class="numeric-field">
-                <label for="seed">Color Seed</label>
-                <input type="number" id="seed" @bind="_colorKey.Seed"/>
+            <div class="parameter-group">
+                <h3 class="group-title">General</h3>
+                <div class="numeric-field">
+                    <label for="seed">Color Seed</label>
+                    <input type="number" id="seed" @bind="_colorKey.Seed"/>
+                </div>
             </div>
 
-            <div class="numeric-field">
-                <label for="saturation-max">Saturation Ceiling</label>
-                <input type="number" step="0.01" id="saturation-max" @bind="_colorKey.Saturation.Max"/>
+            <div class="parameter-group">
+                <h3 class="group-title">Saturation</h3>
+                <div class="numeric-field">
+                    <label for="saturation-max">Ceiling</label>
+                    <input type="number" step="0.01" id="saturation-max" @bind="_colorKey.Saturation.Max"/>
+                </div>
+                <div class="numeric-field">
+                    <label for="saturation-min">Floor</label>
+                    <input type="number" step="0.01" id="saturation-min" @bind="_colorKey.Saturation.Min"/>
+                </div>
             </div>
 
-            <div class="numeric-field">
-                <label for="saturation-min">Saturation Floor</label>
-                <input type="number" step="0.01" id="saturation-min" @bind="_colorKey.Saturation.Min"/>
+            <div class="parameter-group">
+                <h3 class="group-title">Lightness</h3>
+                <div class="numeric-field">
+                    <label for="lightness-max">Ceiling</label>
+                    <input type="number" step="0.01" id="lightness-max" @bind="_colorKey.Lightness.Max"/>
+                </div>
+                <div class="numeric-field">
+                    <label for="lightness-min">Floor</label>
+                    <input type="number" step="0.01" id="lightness-min" @bind="_colorKey.Lightness.Min"/>
+                </div>
             </div>
 
-            <div class="numeric-field">
-                <label for="lightness-max">Lightness Ceiling</label>
-                <input type="number" step="0.01" id="lightness-max" @bind="_colorKey.Lightness.Max"/>
-            </div>
-
-            <div class="numeric-field">
-                <label for="lightness-min">Lightness Floor</label>
-                <input type="number" step="0.01" id="lightness-min" @bind="_colorKey.Lightness.Min"/>
-            </div>
-
-            <div class="numeric-field">
-                <label for="brightness-max">Brightness Ceiling</label>
-                <input type="number" id="brightness-max" @bind="_colorKey.Brightness.Max"/>
-            </div>
-
-            <div class="numeric-field">
-                <label for="brightness-min">Brightness Floor</label>
-                <input type="number" id="brightness-min" @bind="_colorKey.Brightness.Min"/>
+            <div class="parameter-group">
+                <h3 class="group-title">Brightness</h3>
+                <div class="numeric-field">
+                    <label for="brightness-max">Ceiling</label>
+                    <input type="number" id="brightness-max" @bind="_colorKey.Brightness.Max"/>
+                </div>
+                <div class="numeric-field">
+                    <label for="brightness-min">Floor</label>
+                    <input type="number" id="brightness-min" @bind="_colorKey.Brightness.Min"/>
+                </div>
             </div>
         </div>
     </div>
