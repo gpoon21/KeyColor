@@ -12,7 +12,7 @@ KeyColor is a .NET library that generates unique and consistent colors based on 
   - .NET 8.0
   - .NET Standard 2.0
 - **High Performance**: Optimized for both modern and legacy .NET frameworks
-- **Thread-Safe**: Safe to use in concurrent environments
+- **Thread Safety**: Static `ColorFrom` APIs are thread-safe, `KeyColorGenerator` has thread-safe color generation
 
 ## Installation
 
@@ -80,11 +80,15 @@ The solution includes a Blazor WebAssembly demo project that showcases the libra
 - `Span<T>(ReadOnlySpan<T> span) where T : struct`: Generate color from span
 - `Rng()`: Generate random color
 
+All methods in `ColorFrom` are thread-safe and can be safely called from multiple threads.
+
 ### KeyColorGenerator (Class)
 
 - `GetUniqueColor(string label)`: Generate color from string
 - `GetUniqueColor<T>(T key) where T : struct`: Generate color from struct
 - `GetUniqueColor(ReadOnlySpan<byte> key)`: Generate color from byte span
+
+**Thread Safety Note**: The color generation methods are thread-safe, but modifying properties (Seed, Saturation, Lightness, Brightness) is not thread-safe. If you need to modify these properties, do it before making the generator available to multiple threads.
 
 ### GeneratedColor (Struct)
 
@@ -93,15 +97,3 @@ The solution includes a Blazor WebAssembly demo project that showcases the libra
 - `B`: Blue component (0-255)
 - `ToArray()`: Convert to byte array
 - `ToCssColor()`: Convert to CSS color string
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Credits
-
-Developed and maintained by [Your Name/Organization] 
