@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor.UnitTest", "KeyCol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor.Demo", "KeyColor.Demo\KeyColor.Demo.csproj", "{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyColor.Benchmark", "KeyColor.Benchmark\KeyColor.Benchmark.csproj", "{F71F0EB5-0DAD-4E7D-AE19-1359E88741F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFF24C9A-8A55-40E5-99CD-4351465AAD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71F0EB5-0DAD-4E7D-AE19-1359E88741F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71F0EB5-0DAD-4E7D-AE19-1359E88741F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71F0EB5-0DAD-4E7D-AE19-1359E88741F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71F0EB5-0DAD-4E7D-AE19-1359E88741F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
