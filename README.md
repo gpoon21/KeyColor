@@ -9,6 +9,7 @@ If you find this project helpful, please consider giving it a star! ⭐
 - **Deterministic Color Generation**: Same input always produces the same color
 - **Type Support**: Generate colors from strings, byte arrays, or structs
 - **Customizable Parameters**: Control saturation, lightness, and brightness ranges
+- **Text Contrast Guarantee**: Default settings ensure text readability on generated colors
 - **Framework Support**: 
   - .NET 9.0
   - .NET 8.0
@@ -75,6 +76,15 @@ generator.Brightness.Max = 200;
 var color = generator.GetUniqueColor("myKey");
 ```
 
+### Text Visibility
+
+The default configuration ensures that both black and white text will be readable on any generated color:
+
+- **Lightness Range**: Constrained between 0.2 and 0.8 (not too dark, not too light)
+- **Brightness Range**: Kept between 80-200 (moderate brightness)
+- **Perceived Brightness**: Algorithm considers human eye perception of different colors
+
+This means you can safely overlay text on generated colors without additional contrast checks for most use cases.
 
 ## API Reference
 
