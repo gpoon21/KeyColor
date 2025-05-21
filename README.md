@@ -19,10 +19,11 @@ If you find this project helpful, please consider giving it a star! ⭐
 
 ## Demo
 
-The solution includes a Blazor WebAssembly demo project that showcases the library's capabilities. You can:
-- Generate colors from different inputs
-- Adjust color generation parameters in real-time
-- View a color palette generated from random keys
+![KeyColor Demo Screenshot](docs/images/demo.png)
+
+Try out the [live demo](https://brave-bush-06f230610.6.azurestaticapps.net/) to see KeyColor in action!
+
+All parameters update in real-time, letting you see how they affect the generated colors.
 
 ## Installation
 
