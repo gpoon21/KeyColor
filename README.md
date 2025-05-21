@@ -2,6 +2,8 @@
 
 KeyColor is a .NET library that generates unique and consistent colors based on input keys. It's perfect for applications that need deterministic color generation, such as data visualization, user interfaces, and color-coded elements.
 
+If you find this project helpful, please consider giving it a star! ⭐
+
 ## Features
 
 - **Deterministic Color Generation**: Same input always produces the same color
@@ -13,6 +15,13 @@ KeyColor is a .NET library that generates unique and consistent colors based on 
   - .NET Standard 2.0
 - **High Performance**: Optimized for both modern and legacy .NET frameworks
 - **Thread Safety**: Static `ColorFrom` APIs are thread-safe, `KeyColorGenerator` has thread-safe color generation
+
+## Demo
+
+The solution includes a Blazor WebAssembly demo project that showcases the library's capabilities. You can:
+- Generate colors from different inputs
+- Adjust color generation parameters in real-time
+- View a color palette generated from random keys
 
 ## Installation
 
@@ -64,12 +73,6 @@ generator.Brightness.Max = 200;
 var color = generator.GetUniqueColor("myKey");
 ```
 
-## Demo
-
-The solution includes a Blazor WebAssembly demo project that showcases the library's capabilities. You can:
-- Generate colors from different inputs
-- Adjust color generation parameters in real-time
-- View a color palette generated from random keys
 
 ## API Reference
 
@@ -97,3 +100,14 @@ All methods in `ColorFrom` are thread-safe and can be safely called from multipl
 - `B`: Blue component (0-255)
 - `ToArray()`: Convert to byte array
 - `ToCssColor()`: Convert to CSS color string
+
+
+## Performance
+
+Here's a performance comparison of `ColorFrom.Key<struct>` across different .NET versions:
+
+| Framework         | Mean      | Allocated |
+|-------------------|-----------|-----------|
+| .NET 9.0          | 680.5 ns  | 0 bytes   |
+| .NET 8.0          | 688.6 ns  | 0 bytes   |
+| .NET Core 3.1     | 1,475 ns  | 1.2 KB    |
