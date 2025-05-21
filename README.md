@@ -19,7 +19,7 @@ If you find this project helpful, please consider giving it a star! ⭐
 
 ## Demo
 
-![KeyColor Demo Screenshot](docs/images/demo.png)
+![KeyColor Demo Screenshot](ReadmeAssets/Screenshot.png)
 
 Try out the [live demo](https://brave-bush-06f230610.6.azurestaticapps.net/) to see KeyColor in action!
 
