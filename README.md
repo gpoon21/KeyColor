@@ -19,11 +19,9 @@ If you find this project helpful, please consider giving it a star! ⭐
 
 ## Demo
 
-![KeyColor Demo Screenshot](ReadmeAsssets/Screenshot.png)
+[![KeyColor Demo Screenshot](ReadmeAsssets/Screenshot.png)](https://brave-bush-06f230610.6.azurestaticapps.net/)
 
 Try out the [live demo](https://brave-bush-06f230610.6.azurestaticapps.net/) to see KeyColor in action!
-
-All parameters update in real-time, letting you see how they affect the generated colors.
 
 ## Installation
 
