@@ -8,9 +8,9 @@ If you find this project helpful, please consider giving it a star! ⭐
 ## Features
 
 - **Deterministic Color Generation**: Same input always produces the same color
+- **Text Contrast Guarantee**: Default settings ensure text readability on generated colors
 - **Type Support**: Generate colors from strings, byte arrays, or structs
 - **Customizable Parameters**: Control saturation, lightness, and brightness ranges
-- **Text Contrast Guarantee**: Default settings ensure text readability on generated colors
 - **Framework Support**: 
   - .NET 9.0
   - .NET 8.0
