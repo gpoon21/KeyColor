@@ -11,6 +11,7 @@ namespace KeyColor.Benchmark;
 [RankColumn]
 [ShortRunJob(RuntimeMoniker.Net90)]
 [ShortRunJob(RuntimeMoniker.Net80)]
+[ShortRunJob(RuntimeMoniker.Net70)]
 public class ColorFromBenchmark {
     private const string _stringKey = "TestKey";
     private readonly byte[] _byteArray = [1, 2, 3, 4, 5];

@@ -12,6 +12,7 @@ If you find this project helpful, please consider giving it a star! ⭐
 - **Framework Support**: 
   - .NET 9.0
   - .NET 8.0
+  - .NET 7.0
   - .NET Standard 2.0
 - **High Performance**: Optimized for both modern and legacy .NET frameworks
 - **Thread Safety**: Static `ColorFrom` APIs are thread-safe, `KeyColorGenerator` has thread-safe color generation
@@ -110,4 +111,5 @@ Here's a performance comparison of `ColorFrom.Key<struct>` across different .NET
 |-------------------|-----------|-----------|
 | .NET 9.0          | 680.5 ns  | 0 bytes   |
 | .NET 8.0          | 688.6 ns  | 0 bytes   |
+| .NET 7.0          | 689.0 ns  | 0 bytes   |
 | .NET Core 3.1     | 1,475 ns  | 1.2 KB    |
