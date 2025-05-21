@@ -1,4 +1,5 @@
 # KeyColor
+[![NuGet (with prereleases)](https://img.shields.io/nuget/vpre/KeyColor.svg?logo=nuget)](https://www.nuget.org/packages/KeyColor)
 
 KeyColor is a .NET library that generates unique and consistent colors based on input keys. It's perfect for applications that need deterministic color generation, such as data visualization, user interfaces, and color-coded elements.
 
