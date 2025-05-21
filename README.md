@@ -19,9 +19,11 @@ If you find this project helpful, please consider giving it a star! ⭐
 
 ## Demo
 
-[![KeyColor Demo Screenshot](ReadmeAsssets/Screenshot.png)](https://brave-bush-06f230610.6.azurestaticapps.net/)
+<a href="https://brave-bush-06f230610.6.azurestaticapps.net/" target="_blank">
+  <img src="ReadmeAsssets/Screenshot.png" alt="KeyColor Demo Screenshot">
+</a>
 
-Try out the [live demo](https://brave-bush-06f230610.6.azurestaticapps.net/) to see KeyColor in action!
+Try out the <a href="https://brave-bush-06f230610.6.azurestaticapps.net/" target="_blank">live demo</a> to see KeyColor in action!
 
 ## Installation
 
