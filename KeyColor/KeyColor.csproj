@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFrameworks>net9.0;net8.0;net7.0;netstandard2.0;</TargetFrameworks>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>gpoon21</Authors>
         <Company>gpoon21</Company>
         <Description>Generates unique and consistent colors based on a specific key.</Description>
