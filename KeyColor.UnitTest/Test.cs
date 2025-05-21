@@ -1,6 +1,6 @@
 ﻿
 using Xunit;
-#if !NET8_0_OR_GREATER
+#if !NET7_0_OR_GREATER
 using KeyColor.Standard;
 #endif
 
